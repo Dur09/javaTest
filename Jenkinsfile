@@ -1,5 +1,9 @@
 node {
-	stage('clean and checkout'){
+	stage('Checkout SCM'){
+		deleteDir()
+		checkout scm		
+	}
+	stage('Cleanup'){
 		sh '''
 			docker ps -l | grep java-local
 			docker stop java-local
