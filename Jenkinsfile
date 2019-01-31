@@ -15,7 +15,7 @@ node {
 	}
 	stage('Build container'){
         	sh 'docker run -it -e "container=docker" --privileged=true -d --security-opt seccomp:unconfined --cap-add=SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 10443:10443 -h docker-test.example.com --name java-local docker:java  bash -c "/sbin/init"'
-		sh 'docker cp -a $PWD/. jsrw-local:/site/javaTest'
+		sh 'docker cp -a $PWD/. java-local:/site/javaTest'
 	}
 	stage('Compilation'){
         	sh 'javac HelloWorld.java'
