@@ -18,7 +18,7 @@ node {
 		sh 'docker cp -a $PWD/. java-local:/site/javaTest'
 	}
 	stage('Compilation'){
-        	sh 'javac HelloWorld.java'
+         	sh 'javac HELLOWORLD.java'
 	}
 	stage('Run Java Program'){
         	sh 'java HelloWorld'
